@@ -19,3 +19,4 @@ def is_prime(n):
 
 is_prime(7);
 is_prime(9);
+is_prime(10);
