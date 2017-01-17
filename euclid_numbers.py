@@ -82,8 +82,7 @@ def prime_factors_of(n):
     '''returns a list of prime factors of n if n > 1 and [] otherwise.'''
     if n < 2: return []
     factors = []
-    prime_factor(n, factors);
-    print(factors)
+    prime_factor(n, factors);3
     return factors
 
 def tabulate_euc_factors(n):
@@ -93,6 +92,9 @@ def tabulate_euc_factors(n):
         tup = (i, euclid_number(i), prime_factors_of(euclid_number(i)));
         euc_factors.append(tup);                 
     return euc_factors
+
+##Extra Credit point: trick question, euclid_number(10) is prime!
+## so the prime_factors_of(euclid_number(10)) is [200560490131]
 
 
 
