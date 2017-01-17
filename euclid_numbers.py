@@ -47,11 +47,15 @@ def euclid_number(i):
     ## to next_primer_after was casing the 'NoneType' return;
     if i < 0: return None
     ## your code here
+    prime = 2;
     eu_num = 1;
-    dynamic_typing = 0;
-    for num in xrange(i): 
-        dynamic_typing = num;
-        eu_num = eu_num*next_prime_after(dynamic_typing); # <-- This here. 
+    for num in xrange(i):
+        #print(num);
+        print(eu_num);
+        prime = next_prime_after(prime);
+        eu_num = eu_num*prime; # <-- This here.
+    
+    eu_num = eu_num + 1;
     return eu_num;
     pass
 
