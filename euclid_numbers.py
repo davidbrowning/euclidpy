@@ -30,7 +30,8 @@ def is_prime(n):
     return True;
     pass 
 
-##Modeled after the pseudo code found on wikipedia. https://en.wikipedia.org/wiki/Primality_test#Pseudocode
+## is_prime() was Modeled after the pseudo code found on wikipedia.
+## https://en.wikipedia.org/wiki/Primality_test#Pseudocode
 
 def next_prime_after(p):
     '''computes next prime after prime p; if p is not prime, returns None.'''
@@ -59,23 +60,38 @@ def euclid_number(i):
 def compute_first_n_eucs(n):
     '''returns a list of the first n euclid numbers.'''
     eucs = []
-    ## your code here
+    ## your code here? if the above functions
+    ## are implimented correctly, it already
+    ## works. 
     for eu_num in xrange(n):
         eucs.append(euclid_number(eu_num));
 
     return eucs
 
+def prime_factor(n, factor_list):
+    if(is_prime(n)):
+        factor_list.append(n);
+        return n;
+    else:
+        for num in xrange(2,n):
+            if (n % num == 0):
+                return (prime_factor(n/num, factor_list)
+                    and prime_factor(num, factor_list));
+
 def prime_factors_of(n):
     '''returns a list of prime factors of n if n > 1 and [] otherwise.'''
     if n < 2: return []
     factors = []
-    ## your code here
+    prime_factor(n, factors);
+    print(factors)
     return factors
 
 def tabulate_euc_factors(n):
     '''returns a list of 3-tuples (i, euc, factors).'''
     euc_factors = []
-    ## your code here
+    for i in xrange(n+1):
+        tup = (i, euclid_number(i), prime_factors_of(euclid_number(i)));
+        euc_factors.append(tup);                 
     return euc_factors
 
 
