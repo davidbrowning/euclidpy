@@ -9,19 +9,20 @@
 import math
 
 def is_prime(n):
-    '''is_prime(n) ---> True if n is prime; False otherwise.'''
-    if(n <= 1):
+    '''is_prime(n) ---> True if n is prime; False otherwise. '''
+    #if n == 25
+    if(n <= 1): #pass
         ##('false');
         return False;
-    elif(n <= 3):
+    elif(n <= 3): #pass
         ##('true');
         return True;
-    elif(n % 2 == 0 or n % 3 == 0):
+    elif(n % 2 == 0 or n % 3 == 0): #pass
         ##('false');
         return False;
     i = 5;
-    while(i * i <= n):
-        if (n%i == 0 | n % (i+2) == 0):
+    while(i * i <= n): # 5 * 5 = 25 <= 25
+        if (n%i == 0 or n % (i+2) == 0):
             ##('false');
             return False;
         i = i + 6;
@@ -43,17 +44,13 @@ def next_prime_after(p):
 
 def euclid_number(i):
     '''euclid_number(i) --> i-th Euclid number.'''
-    ##Had epiphany that passing dynamic_typing
-    ## to next_primer_after was casing the 'NoneType' return;
     if i < 0: return None
     ## your code here
     prime = 2;
-    eu_num = 1;
+    eu_num = 2;
     for num in xrange(i):
-        #print(num);
-        print(eu_num);
         prime = next_prime_after(prime);
-        eu_num = eu_num*prime; # <-- This here.
+        eu_num = eu_num*prime; 
     
     eu_num = eu_num + 1;
     return eu_num;
